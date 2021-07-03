@@ -4,7 +4,6 @@ import android.widget.TextView
 import com.example.coolcalc.databinding.ActivityMainBinding
 
 class Calc {
-    var activityMainBinding:ActivityMainBinding ?= null
     var listObjDoubleCalc = mutableListOf<Double>()
     var alreadyAresult = false
     var result = 0.0
@@ -20,7 +19,6 @@ fun multiplicationBeforeResult(listOfObjCalc: Calc, listOfAll: MutableList<Strin
     val multi = a * b;listOfObjCalc.result= multi
     listOfAll[i]="D"
     listOfObjCalc.alreadyAresult = true
-
 }
 
 fun sumBeforeResult(listOfObjCalc: Calc, listOfAll: MutableList<String>, number:String){

@@ -19,7 +19,8 @@ class CalculatorTest {
     val activityRule = ActivityTestRule(MainActivity::class.java)
     @Test
     fun whenGivenAnOperationPressEqualsButtonAndShowResult(){
-        onView(withId(R.id.textMultiInput)).perform(TypeTextAction("28+12-19x82/8x3-8+2/4"))
+        onView(withId(R.id.textMultiInput))
+            .perform(TypeTextAction("28+12-19x82/8x3-8+2/4"))
         var textView = activityRule.activity.findViewById<TextView>(R.id.textMultiInput)
         tempStringNumbers = textView.text.toString()
             onView(withId(R.id.buttonEquals))

@@ -8,7 +8,8 @@ class Calc {
     var listObjDoubleCalc = mutableListOf<Double>()
     var alreadyAresult = false
     var result = 0.0
-    var stringOfNumbersForList =""
+    var stringOfNumbersForList = ""
+
 }
 
 fun multiplicationBeforeResult(listOfObjCalc: Calc, listOfAll: MutableList<String>, number:String){

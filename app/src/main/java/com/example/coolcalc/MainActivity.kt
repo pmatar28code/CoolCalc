@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         var inflater = LayoutInflater.from(this)
         var binding = ActivityMainBinding.inflate(inflater)
         setContentView(binding.root)
-        Calc().activityMainBinding =binding
+        Calc().activityMainBinding = binding
+
 
         val operationsText = findViewById<TextView>(R.id.textMultiInput)
         val resultText = findViewById<TextView>(R.id.textResult)

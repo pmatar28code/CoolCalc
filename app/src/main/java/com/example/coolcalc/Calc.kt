@@ -1,13 +1,14 @@
 package com.example.coolcalc
 
 import android.widget.TextView
+import com.example.coolcalc.databinding.ActivityMainBinding
 
 class Calc {
-
-        var listObjDoubleCalc = mutableListOf<Double>()
-        var alreadyAresult = false
-        var result = 0.0
-        var stringOfNumbersForList =""
+    var activityMainBinding:ActivityMainBinding ?= null
+    var listObjDoubleCalc = mutableListOf<Double>()
+    var alreadyAresult = false
+    var result = 0.0
+    var stringOfNumbersForList = ""
 
 }
 
@@ -103,11 +104,8 @@ fun divisionAfterResult(listOfObjCalc: Calc, listOfAll: MutableList<String>, num
     listOfAll[i]="D"
 }
 
-
 fun searchForOperations(listOfObjCalc: Calc,listOfAll: MutableList<String>):Calc {
-
     for (number in listOfAll) {
-
         if (!listOfObjCalc.alreadyAresult) {
             when (number) {
                 "x" -> {
@@ -116,41 +114,31 @@ fun searchForOperations(listOfObjCalc: Calc,listOfAll: MutableList<String>):Calc
                 "+" -> {
                     sumBeforeResult(listOfObjCalc,listOfAll,number)
                 }
-
                 "-" -> {
                     minusBeforeResult(listOfObjCalc,listOfAll,number)
                 }
-
                 "/" -> {
                     divisionBeforeResult(listOfObjCalc,listOfAll,number)
                 }
-
             }
         } else{ when(number){
             "x"->{
                 multiplicationAfterResult(listOfObjCalc,listOfAll,number)
             }
-
             "/"-> {
                divisionAfterResult(listOfObjCalc,listOfAll,number)
             }
-
             "+"->{
                sumAfterResult(listOfObjCalc,listOfAll,number)
             }
-
             "-"->   {
                minusAfterResult(listOfObjCalc,listOfAll,number)
             }
-
         }
-
-            }
+        }
     }
-
     return listOfObjCalc
 }
-
 
 fun showResult( objectCalc: Calc,textView: TextView): TextView {
     val a = objectCalc.result
@@ -158,7 +146,6 @@ fun showResult( objectCalc: Calc,textView: TextView): TextView {
     textView.text = result
     return textView
 }
-
 
 fun createListFromString(obj:Calc):MutableList<String> {
     var number = ""
@@ -188,17 +175,11 @@ fun createListFromString(obj:Calc):MutableList<String> {
                 val x = n
                 val p = x.toString()
                 number += p
-
-
             }
-
         }
-
     }
-
     return tempList
 }
-
 
 //updates operation text
 fun deleteOneOpText(textview:TextView):TextView{
@@ -208,11 +189,8 @@ fun deleteOneOpText(textview:TextView):TextView{
     return textview
 }
 
-
 //adds everything i type to the list separately
 var listOfNumbers = mutableListOf<String>()
-
-
 
 //saves numbers that are before and after operator
 var tempStringNumbers: String = ""

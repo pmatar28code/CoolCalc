@@ -7,28 +7,38 @@ import android.widget.TextView
 import com.example.coolcalc.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    //object for search for operations and beyond
     var objForAll = Calc()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var inflater = LayoutInflater.from(this)
-        var binding = ActivityMainBinding.inflate(inflater)
+        val inflater = LayoutInflater.from(this)
+        val binding = ActivityMainBinding.inflate(inflater)
         setContentView(binding.root)
         Calc().activityMainBinding = binding
 
+        setButtons(binding)
+    }
 
-        val operationsText = findViewById<TextView>(R.id.textMultiInput)
-        val resultText = findViewById<TextView>(R.id.textResult)
+    private   fun followUpText(number: String,textView: TextView):TextView{
+        var continueText = textView.text.toString()
+        textView.text = number
+        continueText+=textView.text
+        textView.text = continueText
+        return  textView
+    }
 
+    private fun setButtons(binding:ActivityMainBinding){
         binding.apply {
+
+            val operationsText = binding.textMultiInput
+            val resultText = binding.textResult
+
             buttonDot.setOnClickListener {
                 val dot = "."
                 tempStringNumbers += "."
                 followUpText(dot, operationsText)
             }
             buttonEquals.setOnClickListener {
-                //var addBeforeResult = "r"
                 tempStringNumbers += "r"
                 objForAll.stringOfNumbersForList = tempStringNumbers
                 listOfNumbers = createListFromString(objForAll)
@@ -65,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                 objForAll.result = 0.0
                 listOfNumbers.clear()
                 resultText.text = ""
-                operationsText.text = ""
+                operationsText.setText("")
             }
             buttonBack.setOnClickListener {
                 tempStringNumbers = tempStringNumbers.dropLast(1)
@@ -122,13 +132,5 @@ class MainActivity : AppCompatActivity() {
                 followUpText(nine, operationsText)
             }
         }
-    }
-    //updates operation textview
-    private   fun followUpText(number: String,textView: TextView):TextView{
-        var continueText = textView.text.toString()
-        textView.text = number
-        continueText+=textView.text
-        textView.text = continueText
-        return  textView
     }
 }

@@ -4,7 +4,6 @@ import org.junit.Assert
 import org.junit.Test
 
 class CalculatorUnitTest {
-    //I also performed Espresso test on Android Test
     fun testProcedure(operationString:String,expected:Double){
         var objectForOperations = Calc()
         val tempString = operationString
